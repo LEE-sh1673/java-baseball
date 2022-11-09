@@ -41,7 +41,7 @@ public class JudgementTest {
         boolean expected) {
 
         assertThat(
-            Judgement.hasPlace(computer, number, index)
+            judgement.hasPlace(computer, number, index)
         ).isEqualTo(expected);
     }
 
