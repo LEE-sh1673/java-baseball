@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.domain.PlayResult;
 import baseball.service.BaseballService;
 import baseball.view.InputView;
 import baseball.view.OutputView;
@@ -8,11 +9,11 @@ public class BaseballGameController {
 
     BaseballService baseballService;
 
-    String playResult;
+    PlayResult playResult;
 
     public BaseballGameController() {
         baseballService = new BaseballService();
-        playResult = "";
+        playResult = new PlayResult();
     }
 
     public void start() {
@@ -21,9 +22,9 @@ public class BaseballGameController {
     }
 
     private void processGame() {
-        while (!playResult.equals("0볼 3스트라이크")) {
+        while (!playResult.isGameEnd()) {
             playResult = baseballService.playGame(InputView.askNumbers());
-            OutputView.displayPlayResult(playResult);
+            OutputView.displayPlayResult(playResult.getResult());
         }
     }
 }

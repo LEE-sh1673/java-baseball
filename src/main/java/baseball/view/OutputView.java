@@ -11,4 +11,5 @@ public class OutputView {
     public static void displayGameEndMessage() {
         System.out.println(GAME_END_MESSAGE);
     }
+
 }

@@ -2,6 +2,7 @@ package baseball.service;
 
 import static baseball.domain.NumberGenerator.createNonDuplicateNumbers;
 
+import baseball.domain.PlayResult;
 import baseball.domain.Referee;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class BaseballService {
         this.answer = createNonDuplicateNumbers();
     }
 
-    public String playGame(final List<Integer> player) {
+    public PlayResult playGame(final List<Integer> player) {
         return referee.compare(answer, player);
     }
 }

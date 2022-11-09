@@ -11,15 +11,11 @@ public class Referee {
         this.judgement = new Judgement();
     }
 
-    public String compare(final List<Integer> computer, final List<Integer> player) {
+    public PlayResult compare(final List<Integer> computer, final List<Integer> player) {
         int correctCount = judgement.correctCount(computer, player);
-
-        if (correctCount == 0) {
-            return "낫싱";
-        }
         int numberOfStrikes = getNumberOfStrikes(computer, player);
         int numberOfBalls = correctCount - numberOfStrikes;
-        return String.format("%d볼 %d스트라이크", numberOfBalls, numberOfStrikes);
+        return new PlayResult(numberOfStrikes, numberOfBalls);
     }
 
     private int getNumberOfStrikes(final List<Integer> computer, final List<Integer> player) {
